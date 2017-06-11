@@ -37,6 +37,22 @@ theme: sudodoki/reveal-cleaver-theme
 ![alt text](baseball.png)
 ---
 
+##Elements of Data Analysis
+
+---
+###Correlation Coefficient
+![alt text](http://www.statisticshowto.com/wp-content/uploads/2012/10/pearson-300x156.gif)
+```javascript
+
+	//execute correlation coefficient formula
+	var r = ((n*sumXY) - (sumX*sumY))
+	/Math.sqrt(((n*sumXX)-(sumX*sumX)) * ((n*sumYY)-(sumY*sumY)))
+```
+---
+###Hypothesis Testing
+
+![alt text](teststatistic.png)
+---
 ### What D3 Is
 * Javascript library for visualizing data
 * Structure for applying data transformations
@@ -103,8 +119,11 @@ Assigning to variable allows us to capture a reference to the svg we've created 
 
 ```
 ---
-
 ###Scale
+![alt text](cosmiccalendar.gif)
+---
+
+###Scale (cont.)
 ```javascript
 	const xRange= [
 	d3.min(stats, function(data){
@@ -132,7 +151,7 @@ Assigning to variable allows us to capture a reference to the svg we've created 
 
 >"Overview first, zoom and filter, then details on demand" 
 
-- Ben Shneiderman *Visual Information-seeking Mantra* 
+- Ben Shneiderman 
 
 ---
 
@@ -141,4 +160,11 @@ Assigning to variable allows us to capture a reference to the svg we've created 
 
 * http://chimera.labs.oreilly.com/books/1230000000345/index.html
 
+* https://www.varsitytutors.com/hotmath/hotmath_help/topics/line-of-best-fit
+
+* https://onlinecourses.science.psu.edu/stat501/node/33
+
 * http://www.datasciencecentral.com/
+
+Code for this project available publicly at 
+https://github.com/J-Wicks/d3TechTalk

@@ -5,9 +5,9 @@ const $ = require('jquery')
 const promiseCSV = Promise.promisify(d3.csv);
 
 //set height and width of chart
-const h = 250
-const w = 720
-
+const h = 255
+const w = 480
+const padding =20
 //helper function reducing objects to just x and y properties
 
 const reduceXY = function(object, labelProp, xProp, yProp){
@@ -77,13 +77,13 @@ promiseCSV('stats.csv')
 	//set x and y scales to normalize data into chart space
 	var xScale = d3.scaleLinear()
 		.domain([xRange[0], xRange[1]]) //range of possible input data values
-		.range([0, w]) //range of possible output data values
+		.range([padding, w-padding]) //range of possible output data values
 
 	var yScale = d3.scaleLinear()
 		.domain([yRange[0], yRange[1]])
-		.range([h, 0]) // invert y axis
+		.range([h - padding, padding]) // reverse variables to invert y
 
-	var svg = d3.select('body')
+	var svg = d3.select('#chart-space')
 
 		.append('svg')
 		.attr("width", w)
@@ -114,15 +114,20 @@ promiseCSV('stats.csv')
 		return stats.y
 	})
 
-	return correlation(stats)
+	return {
+		correlation: correlation(stats),
+		bestFit: 'notworking'
+	}
+
 })
-.then(correlation => {
+.then(measures => {
 	$('svg').on('click', '.dataDot', function(event){
 		var rawVals = [$(this).attr('x'), $(this).attr('y')]
 		var team = event.target.id
+		$(this).addClass('selected')
 		$('#rowName').text(team)
 		$('#valX').text(rawVals[0])
 		$('#valY').text(rawVals[1])
 	})
-	$('body').prepend(`<div>Correlation Coefficient: ${correlation}</div>`)
+	$('#stat-space').append(`<div>Correlation Coefficient: ${Math.round(measures.correlation*100)/100}</div>`)
 })

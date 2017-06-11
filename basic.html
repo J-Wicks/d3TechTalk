@@ -1808,6 +1808,24 @@ based on dark.css by Ivan Sagalaev
 
   </section>
   <section>
+    <h2 id="elements-of-data-analysis">Elements of Data Analysis</h2>
+
+  </section>
+  <section>
+    <h3 id="correlation-coefficient">Correlation Coefficient</h3>
+<p><img src="http://www.statisticshowto.com/wp-content/uploads/2012/10/pearson-300x156.gif" alt="alt text"></p>
+<pre><code class="lang-javascript">
+    <span class="hljs-comment">//execute correlation coefficient formula</span>
+    <span class="hljs-keyword">var</span> r = ((n*sumXY) - (sumX*sumY))
+    /<span class="hljs-built_in">Math</span>.sqrt(((n*sumXX)-(sumX*sumX)) * ((n*sumYY)-(sumY*sumY)))</code></pre>
+
+  </section>
+  <section>
+    <h3 id="hypothesis-testing">Hypothesis Testing</h3>
+<p><img src="teststatistic.png" alt="alt text"></p>
+
+  </section>
+  <section>
     <h3 id="what-d3-is">What D3 Is</h3>
 <ul>
 <li>Javascript library for visualizing data</li>
@@ -1871,6 +1889,11 @@ promiseCSV(<span class="hljs-string">'stats.csv'</span>)</code></pre>
   </section>
   <section>
     <h3 id="scale">Scale</h3>
+<p><img src="cosmiccalendar.gif" alt="alt text"></p>
+
+  </section>
+  <section>
+    <h3 id="scale-cont-">Scale (cont.)</h3>
 <pre><code class="lang-javascript">    <span class="hljs-keyword">const</span> xRange= [
     d3.min(stats, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
         <span class="hljs-keyword">return</span> data.x
@@ -1898,7 +1921,7 @@ promiseCSV(<span class="hljs-string">'stats.csv'</span>)</code></pre>
 <p>&quot;Overview first, zoom and filter, then details on demand&quot; </p>
 </blockquote>
 <ul>
-<li>Ben Shneiderman <em>Visual Information-seeking Mantra</em></li>
+<li>Ben Shneiderman</li>
 </ul>
 
   </section>
@@ -1909,9 +1932,15 @@ promiseCSV(<span class="hljs-string">'stats.csv'</span>)</code></pre>
 </li>
 <li><p><a href="http://chimera.labs.oreilly.com/books/1230000000345/index.html">http://chimera.labs.oreilly.com/books/1230000000345/index.html</a></p>
 </li>
+<li><p><a href="https://www.varsitytutors.com/hotmath/hotmath_help/topics/line-of-best-fit">https://www.varsitytutors.com/hotmath/hotmath_help/topics/line-of-best-fit</a></p>
+</li>
+<li><p><a href="https://onlinecourses.science.psu.edu/stat501/node/33">https://onlinecourses.science.psu.edu/stat501/node/33</a></p>
+</li>
 <li><p><a href="http://www.datasciencecentral.com/">http://www.datasciencecentral.com/</a></p>
 </li>
 </ul>
+<p>Code for this project available publicly at 
+<a href="https://github.com/J-Wicks/d3TechTalk">https://github.com/J-Wicks/d3TechTalk</a></p>
 
   </section>
   <section>
