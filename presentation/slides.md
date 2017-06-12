@@ -9,8 +9,7 @@ theme: sudodoki/reveal-cleaver-theme
 
 --
 
-# D3: Data Driven Documents
-## Using the D3 Library to Visualize and Analyze Data
+#Using the D3 Library to Visualize and Analyze Data
 
 --
 
@@ -32,9 +31,9 @@ theme: sudodoki/reveal-cleaver-theme
 ### Gathering Data
 
 * https://finance.yahoo.com/quote/YHOO/history/
-![alt text](yahoofinance.png)
+![alt text](presentation/yahoofinance.png)
 * http://www.espn.com/mlb/statistics
-![alt text](baseball.png)
+![alt text](presentation/baseball.png)
 ---
 
 ##Elements of Data Analysis
@@ -51,9 +50,10 @@ theme: sudodoki/reveal-cleaver-theme
 ---
 ###Hypothesis Testing
 
-![alt text](teststatistic.png)
+![alt text](presentation/teststatistic.png)
 ---
 ### What D3 Is
+* Data Driven Documents
 * Javascript library for visualizing data
 * Structure for applying data transformations
 * Imperative 
@@ -120,7 +120,7 @@ Assigning to variable allows us to capture a reference to the svg we've created 
 ```
 ---
 ###Scale
-![alt text](cosmiccalendar.gif)
+![alt text](/presentation/cosmiccalendar.gif)
 ---
 
 ###Scale (cont.)

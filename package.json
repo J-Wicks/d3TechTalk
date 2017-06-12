@@ -13,6 +13,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "d3": "^4.9.1",
+    "fs": "0.0.1-security",
     "jquery": "^3.2.1",
     "webpack": "^2.6.1"
   },

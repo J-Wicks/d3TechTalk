@@ -8,6 +8,7 @@ const promiseCSV = Promise.promisify(d3.csv);
 const h = 255
 const w = 480
 const padding =20
+let dataset = ''
 //helper function reducing objects to just x and y properties
 
 const reduceXY = function(object, labelProp, xProp, yProp){
@@ -47,17 +48,40 @@ const correlation = function(data) {
 	return r
 }
 
-promiseCSV('stats.csv')
+//Submit ajax query to pull file names
+$.get({
+	url: '/data'
+})
+.done((data) =>{
+	let dataSets = $(data).children()
+	Array.prototype.forEach.call(dataSets, (dataset) =>{
+		let data = $(dataset).first().text()
+		$('#data-set').append(`<option value=${data}> ${data.split('.')[0]} </option>`)
+	})
+
+})
+
+$('#data-set').on('change', (e)=>{
+	dataset = e.target.value
+	console.log(dataset)
+})
+
+$('#graph').on('click', (e) =>{
+
+$('svg').remove()
+$('#correlation').remove()
+
+promiseCSV(`/data/${dataset}`)
 
 .then((stats) => {
-
+	console.log(stats.columns)
 	//scrub data using helper function
 	stats = stats.map(object => {
-		return reduceXY(object, 'Team', 'bullpenPercent', 'winPercent')
+		return reduceXY(object, stats.columns[0], stats.columns[1], stats.columns[2])
 	})
 
 	//Using d3 methods min and max, get the maximum and minimum from the data set
-	const xRange= [
+	let xRange= [
 	d3.min(stats, function(data){
 		return data.x
 	}),
@@ -66,7 +90,7 @@ promiseCSV('stats.csv')
 	})
 	]
 
-	const yRange= [
+	let yRange= [
 	d3.min(stats, function(data){
 		return data.y
 	}),
@@ -124,10 +148,15 @@ promiseCSV('stats.csv')
 	$('svg').on('click', '.dataDot', function(event){
 		var rawVals = [$(this).attr('x'), $(this).attr('y')]
 		var team = event.target.id
+		$('.selected').removeClass('selected')
 		$(this).addClass('selected')
 		$('#rowName').text(team)
 		$('#valX').text(rawVals[0])
 		$('#valY').text(rawVals[1])
 	})
-	$('#stat-space').append(`<div>Correlation Coefficient: ${Math.round(measures.correlation*100)/100}</div>`)
+
+	$('#stat-space').append(`<div id='correlation'>Correlation Coefficient: ${Math.round(measures.correlation*100)/100}</div>`)
 })
+
+})
+

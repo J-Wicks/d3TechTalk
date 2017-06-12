@@ -3,18 +3,21 @@
 	border-bottom: 2px solid;
 
 	margin: 2px;
-	background-color: #e5f9ed;
+
 }
 
 #chart-space:hover {
   cursor: crosshair;
   }
 
-.selected {
-	color:green;
-}
+
 
 .dataDot:hover{
 
 	fill:red;
+}
+
+.selected{
+	fill:red;
+	stroke:black;
 }
